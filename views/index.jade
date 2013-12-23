@@ -1,0 +1,55 @@
+extends layout
+
+block scripts
+    script(type='text/javascript' src='javascripts/main.js')
+    script(type='text/javascript' src='javascripts/modal.js')
+    script(type='text/javascript' src='javascripts/reloadAjax.js')
+
+block navBarExtra
+    button.btn.btn-default.navbar-btn.navbar-right(data-toggle='modal',data-target='#newFaxDialog')
+        span.glyphicon.glyphicon-file
+
+block content
+    .container
+        table.table.table-striped.table-bordered.datatable#faxDataTable(cellpadding=0, cellspacing=0, border=0)
+            thead
+                tr
+                    th Уникальный идентификатор
+                    th Телефон
+                    th Дата
+                    th Статус
+                    th Дата смены статуса
+                    th Кол-во попыток
+            tbody(style='font-family: monospace')
+
+    //- Модальная форма отправки нового факса
+    .container
+        .modal.fade#newFaxDialog(role='dialog',aria-labelledby='newFaxDialogLabel',aria-hidden='true')
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        button.close(type='button',data-dismiss='modal',aria-hidden='true') &times;
+                        h4.modal-title#newFaxDialogLabel Новый факс
+                    .modal-body
+                        .row
+                            .col-xs-10.col-xs-offset-1
+                                .form-horizontal
+                                    form#newFaxRealForm.hidden
+                                        input#number(type='text',name='number')
+                                        input#file(type='file',name='file', accept='application/pdf')
+                                    .form-group
+                                        .input-group
+                                            span.input-group-addon
+                                                span.glyphicon.glyphicon-picture
+                                            .form-control.uneditable-input#fakeInputFileToSend
+                                                span.text-muted Выберите файл для отправки
+                                            span.input-group-btn
+                                                button#btnSelectFile.btn.btn-default(type='button') ...
+                                    .form-group#faxNumberGroup
+                                        .input-group
+                                            span.input-group-addon
+                                                span.glyphicon.glyphicon-phone-alt
+                                            input.form-control#faxNumberInput(type='text',placeholder='Введите номер факса')
+                    .modal-footer
+                        button.btn.btn-default(data-dismiss='modal') Закрыть
+                        button.btn.btn-primary#btnSendFax(data-dismiss='modal', disabled) Отправить »

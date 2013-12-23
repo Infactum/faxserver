@@ -1,0 +1,19 @@
+{
+    "logLevel": "info",
+    "port": 80,
+    "FAX": {
+        "uploadDir": "/tmp/upload",
+        "storageDir": "/tmp/faxout",
+        "gsCommand": "gs",
+        "maxParallelism": 3,
+        "maxRetry": 3,
+        "retryInterval": 300,
+        "delayedProcessingInterval": 5
+    },
+    "AMI": {
+        "host": "192.168.1.1",
+        "port": 5038,
+        "username": "FAX",
+        "secret": "password"
+    }
+}

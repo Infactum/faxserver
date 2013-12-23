@@ -1,0 +1,19 @@
+{
+  "name": "FaxServer",
+  "version": "0.0.1",
+  "private": true,
+  "main": "app.js",
+  "author": "Yegor Ivanov",
+  "dependencies": {
+    "express": "~3.4.7",
+    "jade": "~0.35.0",
+    "formidable": "~1.0.14",
+    "log4js": "~0.6.9",
+    "nami": "~0.6.0",
+    "nconf": "~0.6.9",
+    "node-uuid": "~1.4.1",
+    "redis": "~0.9.2",
+    "socket.io": "~0.9.16",
+    "async": "~0.2.9"
+  }
+}
