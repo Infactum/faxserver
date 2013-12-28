@@ -14,8 +14,7 @@ var http = require('http'),
         logger: require('./lib/socketioLogWrapper')
     });
 
-var faxAMI = require('./lib/fax/faxAMI');
-var emitter = require('./lib/fax/emitter');
+var faxAMI = require('./lib/faxAMI');
 
 app.set('port', config.get('port'));
 app.set('views', path.join(__dirname, 'views'));
@@ -33,17 +32,15 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', require('./routes').index);
-app.get('/fax/state', require('./routes/faxState').faxState);
+app.get('/state', require('./routes/state').faxState);
+app.get('/translate', require('./routes/translate').getTranslation);
 app.post('/upload', require('./routes/upload').upload);
 
 server.listen(app.get('port'), function () {
     logger.info('Express server listening on port ' + app.get('port'));
 });
 
-io.on('connection', function(socket) {
-    emitter.on('update', function() {
-        socket.emit('updateFaxDataTable');
-    });
-});
+require('./lib/faxDB').setEmitter(io.sockets);
 
 faxAMI.start();
+

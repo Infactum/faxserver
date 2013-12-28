@@ -1,20 +1,12 @@
 doctype 5
 html
     head
-        title Факс сервер
-        link(rel='stylesheet', href='stylesheets/bootstrap.min.css')
-        link(rel='stylesheet', href='stylesheets/datatables.css')
-        script(type='text/javascript', src='javascripts/jquery-2.0.3.min.js')
-        script(type='text/javascript', src='javascripts/jquery.inputmask.bundle.min.js')
-        script(type='text/javascript', src='javascripts/jquery.dataTables.min.js')
-        script(type='text/javascript', src='javascripts/datatables.js')
-        script(type='text/javascript', src='javascripts/bootstrap.min.js')
-        script(type='text/javascript', src='/socket.io/socket.io.js')
-        block scripts
+        title #{translation.title}
+        include head
     body
         .navbar.navbar-default(role=navigation)
             .container
                 .navbar-header
-                    a.navbar-brand Исходящие факсы
+                    a.navbar-brand #{translation.navbarTitle}
                 block navBarExtra
         block content

@@ -1,7 +1,7 @@
 var formidable = require('formidable'),
     config = require('../config'),
     logger = require('log4js').getLogger('uploader'),
-    faxProducer = require('../lib/fax/faxProducer');
+    faxProducer = require('../lib/faxProducer');
 
 function upload(req, res) {
     var form = new formidable.IncomingForm();

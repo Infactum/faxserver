@@ -1,6 +1,7 @@
 {
-    "logLevel": "info",
+    "logLevel": "warn",
     "port": 80,
+    "language": "en",
     "FAX": {
         "uploadDir": "/tmp/upload",
         "storageDir": "/tmp/faxout",
@@ -11,7 +12,7 @@
         "delayedProcessingInterval": 5
     },
     "AMI": {
-        "host": "192.168.1.1",
+        "host": "127.0.0.1",
         "port": 5038,
         "username": "FAX",
         "secret": "password"

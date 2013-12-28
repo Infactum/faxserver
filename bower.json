@@ -1,0 +1,13 @@
+{
+  "name": "FaxServer",
+  "version": "0.0.1",
+  "main": "app.js",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~3.0.3",
+    "jquery.inputmask": "~2.4.0",
+    "datatables-plugins": "*",
+    "datatables": "~1.9.4"
+  }
+}

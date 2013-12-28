@@ -1,35 +1,30 @@
 extends layout
 
-block scripts
-    script(type='text/javascript' src='javascripts/main.js')
-    script(type='text/javascript' src='javascripts/modal.js')
-    script(type='text/javascript' src='javascripts/reloadAjax.js')
-
 block navBarExtra
     button.btn.btn-default.navbar-btn.navbar-right(data-toggle='modal',data-target='#newFaxDialog')
         span.glyphicon.glyphicon-file
 
 block content
+    script(type='text/javascript' src='js/modal.js')
+    script(type='text/javascript' src='js/main.js')
     .container
         table.table.table-striped.table-bordered.datatable#faxDataTable(cellpadding=0, cellspacing=0, border=0)
             thead
                 tr
-                    th Уникальный идентификатор
-                    th Телефон
-                    th Дата
-                    th Статус
-                    th Дата смены статуса
-                    th Кол-во попыток
+                    th #{translation.uuid}
+                    th #{translation.phone}
+                    th #{translation.date}
+                    th #{translation.status}
+                    th #{translation.statusChangeDate}
+                    th #{translation.retryCount}
             tbody(style='font-family: monospace')
-
-    //- Модальная форма отправки нового факса
     .container
         .modal.fade#newFaxDialog(role='dialog',aria-labelledby='newFaxDialogLabel',aria-hidden='true')
             .modal-dialog
                 .modal-content
                     .modal-header
                         button.close(type='button',data-dismiss='modal',aria-hidden='true') &times;
-                        h4.modal-title#newFaxDialogLabel Новый факс
+                        h4.modal-title#newFaxDialogLabel #{translation.newFax}
                     .modal-body
                         .row
                             .col-xs-10.col-xs-offset-1
@@ -42,14 +37,14 @@ block content
                                             span.input-group-addon
                                                 span.glyphicon.glyphicon-picture
                                             .form-control.uneditable-input#fakeInputFileToSend
-                                                span.text-muted Выберите файл для отправки
+                                                span.text-muted #{translation.selectFileToSend}
                                             span.input-group-btn
                                                 button#btnSelectFile.btn.btn-default(type='button') ...
                                     .form-group#faxNumberGroup
                                         .input-group
                                             span.input-group-addon
                                                 span.glyphicon.glyphicon-phone-alt
-                                            input.form-control#faxNumberInput(type='text',placeholder='Введите номер факса')
+                                            input.form-control#faxNumberInput(type='text',placeholder='#{translation.inputNumber}')
                     .modal-footer
-                        button.btn.btn-default(data-dismiss='modal') Закрыть
-                        button.btn.btn-primary#btnSendFax(data-dismiss='modal', disabled) Отправить »
+                        button.btn.btn-default(data-dismiss='modal') #{translation.close}
+                        button.btn.btn-primary#btnSendFax(data-dismiss='modal', disabled) #{translation.send}
