@@ -1,22 +1,21 @@
 faxserver
 =========
-FaxServer is ExpressJS web-GUI for smart handling outgoing t.38 faxes through Asterisk.
+FaxServer is ExpressJS web-GUI for smart handling outgoing t.38 faxes through Asterisk. More info can be found [here](http://habrahabr.ru/post/207080/).  
 Requirements
 ------------
 1. Asterisk with AMI and fax dialplan (see below)
 2. Node.JS
-3. Redis server
-
+3. Redis server  
 Installation
 ------------
 1. Clone this repo
 2. npm install
 3. bower install
-4. node app.js
-
+4. node app.js  
 Asterisk configuration
 -----------------
 You should add below code to the asterisk dialplan. This will make Asterisk generated user events with fax status information.
+
 ```
 [OutgoingFaxInit]
 exten => _X.,1,NoOp()
