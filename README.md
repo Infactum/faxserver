@@ -5,15 +5,17 @@ Requirements
 ------------
 1. Asterisk with AMI and fax dialplan (see below)
 2. Node.JS
-3. Redis server  
-Installation
+3. Redis server
+
+Installation  
 ------------
 1. Clone this repo
 2. npm install
 3. bower install
-4. node app.js  
-Asterisk configuration
------------------
+4. node app.js
+
+Asterisk configuration  
+----------------------
 You should add below code to the asterisk dialplan. This will make Asterisk generated user events with fax status information.
 
 ```
